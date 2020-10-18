@@ -1,3 +1,4 @@
+/*-----------------------GENERAL CSS------------------------*/
 .body {
     display: flex;
     flex-direction: column;
@@ -19,7 +20,7 @@
     color: white;
 }
 .link:hover {
-    color: #E2BF41;
+    color: #FAEDB1;
 }
 
 
@@ -29,10 +30,12 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    min-height: 26.6rem;
     padding: 32px 48px;
     background-color: #FFB511;
     border-radius: 20px;
+    -webkit-box-shadow:0 2px 10px rgba(0, 0, 0, 0.3), 0 0 50px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow:0 2px 10px rgba(0, 0, 0, 0.3), 0 0 50px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 2px 10px rgba(0, 0, 0, 0.3), 0 0 50px rgba(0, 0, 0, 0.1) inset;
 }
 
 .login_form {
@@ -40,7 +43,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30%;
+}
+.input{
+    padding: 2px 4px;
+    margin-top: 8px;
+    margin-bottom: 16px;
 }
 .input:focus{
     outline: none;
@@ -50,6 +57,7 @@
     background-color: #1295D8;
     border: none;
     padding: 8px 16px;
+    color: #0d4968;
 }
 .submit_button:hover {
     transform: scale(1.1);
