@@ -11,10 +11,10 @@ function App() {
         </p>
         
       </header>
-      <body>
+      <body className="App-body">
         <p>Display</p>
       </body>
-      <footer>
+      <footer className="App-footer">
         <a
           className="App-link"
           href="https://www.creativelabsucla.com/"
