@@ -1,7 +1,25 @@
+.navbar {
+    background-color: #0d4968;
+    height: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.navbar a {
+    padding: 20px;
+}
+
+.navbar a.sign-up{
+    position: absolute;
+    right: 0px;
+}
 
 .header {
     background-color: #0d4968;
-    height: 90px;
+    height: 80px;
     width: 100%;
     display: flex;
     flex-direction: column;

@@ -8,7 +8,6 @@ function header() {
         <p>
           Trace LA Begins!
         </p>
-        
       </div>
     </div>
   );
