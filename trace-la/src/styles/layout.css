@@ -16,3 +16,22 @@
 
 
 /* ------------------------HOME----------------------*/
+.login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+    background-color: #FFB511;
+    border-radius: 20px;
+}
+
+.login_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.input:focus{
+    outline: none;
+}
