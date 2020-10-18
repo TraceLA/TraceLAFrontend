@@ -1,29 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Main from './components/main';
+import Footer from './components/footer';
+import Header from './components/header';
+import {HashRouter} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Trace LA Begins!
-        </p>
-        
-      </header>
-      <body className="App-body">
-        <p>Display</p>
-      </body>
-      <footer className="App-footer">
-        <a
-          className="App-link"
-          href="https://www.creativelabsucla.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Visit CreativeLabs/TraceLA for more information
-        </a>
-      </footer>
+      <HashRouter>
+        <Header/>
+        <Main/>
+        <Footer/>
+      </HashRouter>
     </div>
   );
 }
