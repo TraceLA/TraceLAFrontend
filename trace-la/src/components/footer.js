@@ -4,7 +4,7 @@ import '../styles/header-footer.css'
 function footer() {
   return (
     <div>
-      <div className="footer">
+      <div className="footer" style={{width: '100vw'}}>
         <a
           className="link"
           href="https://www.creativelabsucla.com/"
