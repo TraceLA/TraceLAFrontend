@@ -6,7 +6,7 @@ function footer() {
     <div>
       <div className="footer">
         <a
-          className="App-link"
+          className="link"
           href="https://www.creativelabsucla.com/"
           target="_blank"
           rel="noopener noreferrer"

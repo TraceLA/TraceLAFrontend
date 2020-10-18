@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: #FFB511;
+    color: white;
 }
 
 .footer {
@@ -20,5 +20,5 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: #FFB511;
+    color: white;
 }
