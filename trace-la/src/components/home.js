@@ -12,7 +12,7 @@ function home() {
                 <input className="input"></input><br/>
                 <label>Password:</label>
                 <input className="input"></input><br/>
-                <Link to="Dashboard"><button type="submit">Login</button></Link>
+                <Link to="Dashboard"><button type="submit" className="submit_button">Login</button></Link>
             </form>
         </div>
     </div>
