@@ -5,9 +5,9 @@ function header() {
   return (
     <div>
       <div className="header">
-        <p>
-          Trace LA Begins!
-        </p>
+        <a href="/" className="header_link" style={{float: 'left', marginRight: 'auto'}}>
+          Home
+        </a>
       </div>
     </div>
   );
