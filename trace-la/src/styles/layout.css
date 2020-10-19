@@ -71,3 +71,9 @@
 .submit_button:focus {
     outline: none;
 }
+
+/*-----------------------SURVEY CSS------------------------*/
+.survey {
+    background-color: burlywood;
+    padding: 32px;
+}
