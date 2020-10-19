@@ -1,5 +1,5 @@
 import React from 'react';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Main from './components/main';
 import Footer from './components/footer';
 import Header from './components/header';
@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App">
       <HashRouter>
-        <Navbar/>
         <Header/>
         <Main/>
         <Footer/>

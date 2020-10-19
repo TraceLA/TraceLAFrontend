@@ -7,12 +7,10 @@
     font-size: calc(10px + 2vmin);
     color: white;
 }
-
 .navbar a {
     padding: 20px;
     color: white;
 }
-
 .navbar a.sign-up{
     position: absolute;
     right: 0px;
@@ -23,11 +21,41 @@
     height: 80px;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+}
+.header_link {
+    text-decoration: none;
+    color: white;
+}
+.header_link:hover {
+    color: #FAEDB1;
+    text-decoration: none;
+}
+
+.navbar-brand {
+    float: left;
+    margin-right: auto;
+}
+#basic-navbar-nav .nav_auto{
+    text-align: right;
+}
+.nav_auto {
+    float: right;
+    margin-left: auto;
+}
+.navbar-toggler {
+    background-color: white;
+}
+@media only screen and (max-width: 767px)
+{
+    #basic-navbar-nav .nav_auto{
+        border: 1px solid white;
+        background-color: #0d4968;
+    }
 }
 
 .footer {
@@ -35,7 +63,7 @@
     height: 90px;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
