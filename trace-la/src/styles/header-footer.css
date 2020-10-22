@@ -62,10 +62,13 @@
     background-color: #0d4968;
     height: 90px;
     width: 100%;
+}
+.footer_body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
+    justify-content: space-between;
     color: white;
+    padding: 32px;
+    font-size: 20px;
 }

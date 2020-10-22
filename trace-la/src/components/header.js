@@ -10,8 +10,8 @@ function header() {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="nav_auto">
-        <Nav.Link href="/" ><a className="header_link">page1</a></Nav.Link>
-        <Nav.Link href="/" ><a className="header_link">page2</a></Nav.Link>
+        <Nav.Link href="#Survey" ><a className="header_link">Make Report</a></Nav.Link>
+        <Nav.Link href="/" ><a className="header_link">Resources</a></Nav.Link>
         {/*<NavDropdown title="Menu" id="basic-nav-dropdown">
           <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

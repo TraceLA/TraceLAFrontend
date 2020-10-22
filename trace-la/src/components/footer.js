@@ -5,14 +5,18 @@ function footer() {
   return (
     <div>
       <div className="footer" style={{width: '100vw'}}>
-        <a
-          className="link"
-          href="https://www.creativelabsucla.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Visit CreativeLabs/TraceLA for more information
-        </a>
+        <div className="footer_body">
+          <a
+            className="link"
+            href="https://www.creativelabsucla.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit CreativeLabs/TraceLA for more information
+          </a>
+          <a className="link">Terms of Service</a>
+          <a className="link">Contact Information</a>
+        </div>
       </div>
     </div>
   );

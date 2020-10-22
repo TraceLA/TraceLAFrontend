@@ -5,7 +5,8 @@ function dashboard() {
   return (
     <div className="body">
         <p>
-            yay you logged in!
+            yay you logged in! / temp dashboard (i might make this home page and move all of 
+            current home page content into a login.js file)
         </p>
     </div>
   );

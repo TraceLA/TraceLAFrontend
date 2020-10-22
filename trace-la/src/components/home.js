@@ -8,10 +8,10 @@ function home() {
         <div className="sign_up">
             <button className="submit_button" style={{color: "white", backgroundColor: '#FFB511'}}>Sign Up</button>
         </div>
-        <div className="login">
-            <form className="login_form">
+        <div className="form_container">
+            <form className="form">
                 <h1 style={{color: "#0d4968", textDecoration: 'underline', marginBottom: '32px'}}>Login to TraceLA</h1>
-                <label>Username or ID Number:</label>
+                <label>Username or UID:</label>
                 <input className="input"></input>
                 <label>Password:</label>
                 <input className="input"></input>
