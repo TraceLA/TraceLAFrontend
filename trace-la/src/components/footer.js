@@ -14,8 +14,8 @@ function footer() {
           >
             Visit CreativeLabs/TraceLA for more information
           </a>
-          <a className="link">Terms of Service</a>
-          <a className="link">Contact Information</a>
+          <a className="link" href="#terms-of-service">Terms of Service</a>
+          <a className="link" href="#contact">Contact Information</a>
         </div>
       </div>
     </div>
