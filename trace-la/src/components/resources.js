@@ -1,12 +1,17 @@
-import React from 'react';
-import '../styles/layout.css';
+import React from "react";
+import "../styles/layout.css";
+import "../styles/button.css";
+import { HashLink as Link } from "react-router-hash-link";
 
-function resources() {
+const Resources = () => {
   return (
     <div className="body">
-        <p>resources page</p>
+      <h1 style={{ color: "white", marginBottom: "50px" }}>resources page</h1>
+      <Link to="heatmap">
+        <button className="resourcebtn">Heatmap</button>
+      </Link>
     </div>
   );
-}
+};
 
-export default resources;
+export default Resources;
