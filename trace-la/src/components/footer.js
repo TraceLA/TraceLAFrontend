@@ -12,7 +12,7 @@ function footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Visit CreativeLabs/TraceLA for more information
+            CreativeLabs
           </a>
           <a className="link" href="#terms-of-service">Terms of Service</a>
           <a className="link" href="#contact">Contact Information</a>

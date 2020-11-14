@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     padding: 64px 32px;
+    min-height: calc(80vmin);
 }
 
 .row {

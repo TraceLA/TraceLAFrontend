@@ -19,7 +19,6 @@
 .header {
   background-color: #0d4968;
   height: 80px;
-  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
