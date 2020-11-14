@@ -116,6 +116,7 @@
     color: #0d4968;
     text-decoration: none;
     cursor: pointer;
+    outline: none;
 }
 
 /* ------------------------HOME----------------------*/

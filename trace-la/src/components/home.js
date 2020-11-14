@@ -14,12 +14,38 @@ export default class home extends React.Component {
     span.onclick = function () {
       modal.style.display = "none";
     };
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target === modal) {
-        modal.style.display = "none";
+  }
+
+  verifySignUp() {
+    const emailRegex = /(.*(@g.ucla.edu))|(.*(@ucla.edu))/;
+    var email = document.getElementById("email").value;
+    var pass_1 = document.getElementById("password_1").value;
+    var pass_2 = document.getElementById("password_2").value;
+    var uid = document.getElementById("id").value;
+    var modal = document.getElementById("myModal");
+    if (/^\d+$/.test(uid) && uid.length == 9)
+    {
+      if (emailRegex.test(email))
+      {
+        if (pass_1 != "" && pass_1 == pass_2)
+        {
+          modal.style.display = "none";
+        }
+        else
+        {
+          alert("Please make sure your passwords match.");
+        }
       }
-    };
+      else
+      {
+        console.log(email);
+        alert("Please make sure you enter a correct ucla email first.");
+      }
+    }
+    else
+    {
+      alert("Please make sure your UID consists of only 9 digit numbers.")
+    }
   }
 
   render() {
@@ -57,15 +83,15 @@ export default class home extends React.Component {
           </form>
         </div>
 
-        <div class="modal" id="myModal">
-          <div class="modal-content">
+        <div className="modal" id="myModal">
+          <div className="modal-content">
             <div
-              class="modal-header"
+              className="modal-header"
               style={{ borderBottom: "1px solid white", paddingTop: "0px" }}
             >
-              <button class="close-modal">&times;</button>
+              <button className="close-modal">&times;</button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <div
                 className="form_container"
                 style={{ backgroundColor: "#1295D8" }}
@@ -81,24 +107,26 @@ export default class home extends React.Component {
                     Sign Up
                   </h1>
                   <label>Username:</label>
-                  <input className="input"></input>
+                  <input className="input" required></input>
                   <label>UID:</label>
-                  <input className="input"></input>
+                  <input className="input" maxLength="9" required id="id"></input>
+                  <label>School Email (must have @g.ucla.edu or @ucla.edu):</label>
+                  <input className="input" id="email" required></input>
                   <label>First Name:</label>
-                  <input className="input"></input>
+                  <input className="input" required></input>
                   <label>Last Name:</label>
-                  <input className="input"></input>
+                  <input className="input" required></input>
                   <label>Password:</label>
-                  <input className="input"></input>
-                  <Link to="Dashboard">
+                  <input className="input" type="password" id="password_1" required></input>
+                  <label>Retype Password:</label>
+                  <input className="input" type="password" id="password_2" required></input>
                     <button
-                      type="submit"
                       className="submit_button"
+                      onClick={()=>{this.verifySignUp()}}
                       style={{ backgroundColor: "#FFB511" }}
                     >
                       Login
                     </button>
-                  </Link>
                 </form>
               </div>
             </div>
