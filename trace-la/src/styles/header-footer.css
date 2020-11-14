@@ -59,10 +59,8 @@
 
 .footer {
   background-color: #0d4968;
-  height: 90px;
-  width: 100%;
+  width: 100vw;
   position: absolute;
-  bottom: 0;
 }
 .footer_body {
   display: flex;
