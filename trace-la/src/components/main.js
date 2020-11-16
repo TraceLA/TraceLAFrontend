@@ -6,7 +6,7 @@ import Survey from "./survey";
 import Contact from "./contact";
 import TermsOfService from "./terms-of-service";
 import Resources from "./resources";
-import Map from "./map";
+import HeatMap from "./map";
 import Usertable from "./usertable";
 
 const Main = () => {
@@ -19,7 +19,7 @@ const Main = () => {
       <Route exact path="/contact" component={Contact}></Route>
       <Route exact path="/terms-of-service" component={TermsOfService}></Route>
       <Route exact path="/resources" component={Resources}></Route>
-      <Route exact path="/heatmap" component={Map}></Route>
+      <Route exact path="/heatmap" component={HeatMap}></Route>
       <Route exact path="/usertable" component={Usertable}></Route>
     </Switch>
   );
