@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -10,11 +10,10 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
+    minWidth: 600,
   },
   container: {
-    width: 1000,
-    margin: "200px auto",
+    width: 500,
     background: "#ffffff",
     border: "1px solid black",
   },
@@ -25,15 +24,21 @@ const Usertable = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/users").then((res) => {
-      const users = res.data;
-      setUsers(users);
-    });
+    const fetchTable = async () => {
+      try {
+        const usersRes = await axios.get("/users");
+        setUsers(usersRes.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchTable();
   }, []);
 
   const createData = ({ first_name, last_name, email }) => {
     return { first_name, last_name, email };
   };
+
   const rows = users.map((v, i) => createData(v));
 
   return (
@@ -41,19 +46,19 @@ const Usertable = () => {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="right">First name</TableCell>
-            <TableCell align="right">Last name</TableCell>
-            <TableCell align="right">Email</TableCell>
+            <TableCell align="left">First name</TableCell>
+            <TableCell align="left">Last name</TableCell>
+            <TableCell align="left">Email</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" align="left">
                 {row.first_name}
               </TableCell>
-              <TableCell align="right">{row.last_name}</TableCell>
-              <TableCell align="right">{row.email}</TableCell>
+              <TableCell align="left">{row.last_name}</TableCell>
+              <TableCell align="left">{row.email}</TableCell>
             </TableRow>
           ))}
         </TableBody>
