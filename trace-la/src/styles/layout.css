@@ -1,4 +1,8 @@
 /*-----------------------GENERAL CSS------------------------*/
+body {
+    overflow: hidden;
+}
+
 .body {
     display: flex;
     flex-direction: column;
@@ -7,6 +11,7 @@
     align-items: center;
     padding: 64px 32px;
     min-height: calc(80vmin);
+    height: 84.25vh;
 }
 
 .row {
@@ -22,6 +27,7 @@
 }
 .link:hover {
     color: #FAEDB1;
+    text-decoration: none;
 }
 
 /*form*/
@@ -49,6 +55,8 @@
     margin-top: 8px;
     margin-bottom: 16px;
     width: 100%;
+    border: none;
+    border-radius: 20px;
 }
 .input:focus{
     outline: none;
@@ -75,6 +83,9 @@
 }
 .submit_button:focus {
     outline: none;
+}
+label {
+    font-size: 20px;
 }
 
 

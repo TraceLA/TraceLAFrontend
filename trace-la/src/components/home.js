@@ -54,7 +54,7 @@ export default class home extends React.Component {
         <div className="sign_up">
           <button
             className="submit_button"
-            style={{ color: "white", backgroundColor: "#FFB511" }}
+            style={{ color: "white", backgroundColor: "#0d4968" }}
             onClick={() => this.openModal()}
           >
             Sign Up
@@ -65,11 +65,11 @@ export default class home extends React.Component {
             <h1
               style={{
                 color: "#0d4968",
-                textDecoration: "underline",
+                // textDecoration: "underline",
                 marginBottom: "32px",
               }}
             >
-              Login to TraceLA
+              Log in to TraceLA
             </h1>
             <label>Username or UID:</label>
             <input className="input"></input>
@@ -100,7 +100,6 @@ export default class home extends React.Component {
                   <h1
                     style={{
                       color: "#FFB511",
-                      textDecoration: "underline",
                       marginBottom: "32px",
                     }}
                   >
