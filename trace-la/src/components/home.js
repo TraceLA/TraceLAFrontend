@@ -75,7 +75,7 @@ export default class home extends React.Component {
             <input className="input"></input>
             <label>Password:</label>
             <input className="input"></input>
-            <Link to="Dashboard">
+            <Link to="Heatmap">
               <button type="submit" className="submit_button">
                 Login
               </button>

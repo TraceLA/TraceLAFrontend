@@ -17,7 +17,10 @@ function survey() {
                 <label>Last Name:</label>
                 <input className="input"></input>
                 <br></br>
-                <label>List of Symptoms: (Cough, Fever, etc.)</label>
+                <label>Locations Visited (Coordinates):</label>
+                <textarea className="textarea"></textarea>
+                <br></br>
+                {/* <label>List of Symptoms: (Cough, Fever, etc.)</label>
                 <br></br>
                 <textarea className="textarea"></textarea>
                 <br></br>
@@ -27,9 +30,9 @@ function survey() {
                 <br></br>
                 <label>People contacted: (First, Last; First, Last; etc.)</label>
                 <br></br>
-                <textarea className="textarea"></textarea>
+                <textarea className="textarea"></textarea>*/}
                 <br></br>
-                <Link to="Dashboard"><button type="submit" className="submit_button">Submit</button></Link>
+                <Link to="Heatmap"><button type="submit" className="submit_button">Submit</button></Link>
             </form>
         </div>
     </div>

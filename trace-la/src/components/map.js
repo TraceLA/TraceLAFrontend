@@ -164,7 +164,10 @@ const HeatMap = () => {
   const center = { lat: 34.0522, lng: -118.243683 };
 
   return (
-    <div className="pagecontainer">
+    <div style={{display: 'grid'}} className="body">
+      <div className="row">
+        <h1 style={{color: 'white'}}>Dashboard</h1>
+      </div>
       <div className="row">
         <LoadScript
           googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
