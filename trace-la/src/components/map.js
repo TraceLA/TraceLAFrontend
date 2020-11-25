@@ -164,9 +164,9 @@ const HeatMap = () => {
   const center = { lat: 34.0522, lng: -118.243683 };
 
   return (
-    <div style={{display: 'grid'}} className="body">
+    <div style={{ display: "grid" }} className="body">
       <div className="row">
-        <h1 style={{color: 'white'}}>Dashboard</h1>
+        <h1 style={{ color: "white" }}>Dashboard</h1>
       </div>
       <div className="row">
         <LoadScript
@@ -182,9 +182,9 @@ const HeatMap = () => {
           >
             <MarkerClusterer options={clusteroptions}>
               {(clusterer) =>
-                data.map((location) => (
+                data.map((location, indx) => (
                   <Marker
-                    key={createKey(location)}
+                    key={indx}
                     position={location}
                     clusterer={clusterer}
                     label={{
@@ -279,8 +279,8 @@ const HeatMap = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {contacts.map((row) => (
-                <TableRow key={row.name}>
+              {contacts.map((row, indx) => (
+                <TableRow key={indx}>
                   <TableCell component="th" scope="row" align="left">
                     {row.own_username}
                   </TableCell>
@@ -305,8 +305,8 @@ const HeatMap = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {results.map((row) => (
-                <TableRow key={row.name}>
+              {results.map((row, indx) => (
+                <TableRow key={indx}>
                   <TableCell component="th" scope="row" align="left">
                     {row.username}
                   </TableCell>
