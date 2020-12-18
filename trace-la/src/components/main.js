@@ -8,7 +8,7 @@ import Resources from "./resources";
 import HeatMap from "./map";
 import Usertable from "./usertable";
 import ContactsTable from "./usercontacts";
-import ResultsTable from "./results";
+import ResultsVisual from "./results";
 import TagsChart from "./tags"
 
 const Main = () => {
@@ -23,7 +23,7 @@ const Main = () => {
       <Route exact path="/heatmap" component={HeatMap}></Route>
       <Route exact path="/users" component={Usertable}></Route>
       <Route exact path="/contacts" component={ContactsTable}></Route>
-      <Route exact path="/results" component={ResultsTable}></Route>
+      <Route exact path="/results" component={ResultsVisual}></Route>
       <Route exact path="/tags" component={TagsChart}></Route>
     </Switch>
   );
