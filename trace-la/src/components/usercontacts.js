@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useRef } from "react";
+import React, { useEffect, useState} from "react";
 import axios from "axios";
 import "../styles/ToolPageStyles.css";
 import { makeStyles } from "@material-ui/core/styles";

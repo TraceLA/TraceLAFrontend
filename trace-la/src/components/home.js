@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/layout.css";
-import { HashLink as Link } from "react-router-hash-link";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
@@ -26,7 +25,7 @@ const LoginButton = () => {
 
   return (
     <button type="submit" className="submit_button" onClick={login}>
-      Login In
+      Login
     </button>
   );
 };
@@ -92,26 +91,8 @@ export default class home extends React.Component {
   render() {
     return (
       <div className="body">
-        <div className="sign_up">
-          <button
-            className="submit_button"
-            style={{ color: "white", backgroundColor: "#0d4968" }}
-            onClick={() => this.openModal()}
-          >
-            Sign Up
-          </button>
-        </div>
         <div className="form_container">
           <form className="form">
-            <h1
-              style={{
-                color: "#0d4968",
-                // textDecoration: "underline",
-                marginBottom: "32px",
-              }}
-            >
-              Log in to TraceLA
-            </h1>
             <label>Username:</label>
             <input className="input" id="loginUser"></input>
             <label>Password:</label>
@@ -119,6 +100,14 @@ export default class home extends React.Component {
 
             <LoginButton>Login</LoginButton>
           </form>
+        </div>
+        <div className="sign_up">
+          <button
+            className="submit_button"
+            onClick={() => this.openModal()}
+          >
+            Sign Up
+          </button>
         </div>
 
         <div className="modal" id="myModal">
@@ -128,21 +117,14 @@ export default class home extends React.Component {
               style={{ borderBottom: "1px solid white", paddingTop: "0px" }}
             >
               <button className="close-modal">&times;</button>
+
             </div>
             <div className="modal-body">
               <div
                 className="form_container"
-                style={{ backgroundColor: "#1295D8" }}
+                style={{ backgroundColor: "#FFB511 " }}
               >
                 <form className="form">
-                  <h1
-                    style={{
-                      color: "#FFB511",
-                      marginBottom: "32px",
-                    }}
-                  >
-                    Sign Up
-                  </h1>
                   <label>Username:</label>
                   <input className="input" required id="username"></input>
                   <label>UID:</label>
@@ -153,7 +135,7 @@ export default class home extends React.Component {
                     id="id"
                   ></input>
                   <label>
-                    School Email (must have @g.ucla.edu or @ucla.edu):
+                    UCLA Email:
                   </label>
                   <input className="input" id="email" required></input>
                   <label>First Name:</label>
@@ -179,9 +161,10 @@ export default class home extends React.Component {
                     onClick={() => {
                       this.verifySignUp();
                     }}
-                    style={{ backgroundColor: "#FFB511" }}
+                    style={{ backgroundColor: "0d4968" }}
                   >
-                    Login
+                    Sign Up
+                    {/* #0d4968; */}
                   </button>
                 </form>
               </div>

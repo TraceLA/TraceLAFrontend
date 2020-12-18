@@ -69,10 +69,10 @@
 }
 .submit_button {
     border-radius: 4px;
-    background-color: #1295D8;
+    background-color: #0d4968;
     border: none;
     padding: 8px 16px;
-    color: #0d4968;
+    color: #FFFFFF;
 }
 .submit_button:hover {
     transform: scale(1.1);
@@ -102,17 +102,18 @@ label {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #acd7e3;
+    /* background-color: #acd7e3; */
+    background-color: #FFFFFF;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 50%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
 .close-modal {
     color: black;
-    background-color: #acd7e3;
+    background-color: #FFFFFF;
     float: right;
     border: none;
     font-size: 28px;
@@ -129,9 +130,7 @@ label {
 
 /* ------------------------HOME----------------------*/
 .sign_up {
-    float: right;
-    margin-left: auto;
-    margin-bottom: 32px;
+    margin-top: 16px;
 }
 
 /*-----------------------SURVEY CSS------------------------*/

@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/header-footer.css";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar} from "react-bootstrap";
 
 const Header = () => {
   return (
@@ -20,10 +20,10 @@ const Header = () => {
            Contacts
           </a>
           <a href="/#/results" className="header_link" style={{ fontSize: "28px" }}>
-           Test Results
+           Results
           </a>
           <a href="/#/tags" className="header_link" style={{ fontSize: "28px" }}>
-           Frequent Tags
+           Tags
           </a>
           
         </Navbar.Brand>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useRef } from "react";
+import React, { useEffect, useState} from "react";
 import axios from "axios";
 import "../styles/ToolPageStyles.css";
 import { makeStyles } from "@material-ui/core/styles";
@@ -28,8 +28,6 @@ const useStyles = makeStyles({
     paddingLeft: 7,
   },
 });
-
-
 
 
 const ResultsTable = () => {
@@ -116,11 +114,11 @@ const ResultsGraph = () => {
       type: 'spline'
     },
     title: {
-      text: 'Test Results'
+      text: 'Daily Positive Test Results'
     },
     yAxis: {
       title: {
-          text: 'Number of results recorded'
+          text: 'Number of positive results recorded'
       },
       min: 0
   },
@@ -132,7 +130,7 @@ const ResultsGraph = () => {
   },
     series: [
       {
-        name: "Total Results",
+        name: "Positive Test Results",
         data: createResultsGraphData(data)
       }
     ]
