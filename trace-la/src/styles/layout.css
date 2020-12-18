@@ -1,12 +1,9 @@
 /*-----------------------GENERAL CSS------------------------*/
-body {
-    overflow: hidden;
-}
 
 .body {
     display: flex;
     flex-direction: column;
-    background-color: #1295D8;
+    background-color: #FFFFFF;
     justify-content: center;
     align-items: center;
     padding: 64px 32px;

@@ -291,7 +291,8 @@ const HeatMap = () => {
             </TableBody>
           </Table>
         </TableContainer>
-
+</div>
+<div className="row">
         <TableContainer component={Paper} className={classes.container}>
           <Typography variant="h6" className={classes.tableTitle}>
             Test Results
