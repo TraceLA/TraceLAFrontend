@@ -115,7 +115,7 @@ export default class home extends React.Component {
             <label>Username:</label>
             <input className="input" id="loginUser"></input>
             <label>Password:</label>
-            <input className="input" id="loginPw"></input>
+            <input className="input" id="loginPw" type="password"></input>
 
             <LoginButton>Login</LoginButton>
           </form>
