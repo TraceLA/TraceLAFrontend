@@ -163,15 +163,15 @@ const ContactsGraph = () => {
           title: { text: 'Number of Contacts' },
           alignTicks: false
       }, {
-          title: { text: '' },
+          title: { text: 'Data Index' },
           alignTicks: false,
           opposite: true
       }],
   
       yAxis: [{
-          title: { text: 'Number of Users' }
+          title: { text: 'Number of Contacts' }
       }, {
-          title: { text: '' },
+          title: { text: 'Number of Users' },
           opposite: true
       }],
   
