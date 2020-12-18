@@ -7,6 +7,8 @@ import TermsOfService from "./terms-of-service";
 import Resources from "./resources";
 import HeatMap from "./map";
 import Usertable from "./usertable";
+import ContactsTable from "./usercontacts";
+import ResultsTable from "./results";
 
 const Main = () => {
   return (
@@ -19,6 +21,8 @@ const Main = () => {
       <Route exact path="/resources" component={Resources}></Route>
       <Route exact path="/heatmap" component={HeatMap}></Route>
       <Route exact path="/usertable" component={Usertable}></Route>
+      <Route exact path="/contactstable" component={ContactsTable}></Route>
+      <Route exact path="/resultstable" component={ResultsTable}></Route>
     </Switch>
   );
 };

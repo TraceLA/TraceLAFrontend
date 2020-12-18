@@ -8,14 +8,19 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+
+
 const useStyles = makeStyles({
   table: {
-    minWidth: 600,
+    minWidth: 400,
   },
   container: {
-    width: 500,
+    width: "45vw",
     background: "#ffffff",
     border: "1px solid black",
+  },
+  tableTitle: {
+    paddingLeft: 7,
   },
 });
 
@@ -42,6 +47,8 @@ const Usertable = () => {
   const rows = users.map((v, i) => createData(v));
 
   return (
+    <div style={{ display: "grid" }} className="body">  
+      <div className="row">
     <TableContainer component={Paper} className={classes.container}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
@@ -64,6 +71,8 @@ const Usertable = () => {
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
+    </div>
   );
 };
 
