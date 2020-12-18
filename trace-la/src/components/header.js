@@ -10,15 +10,22 @@ const Header = () => {
           <a href="/" className="header_link" style={{ fontSize: "28px" }}>
             Home
           </a>
-          <a href="/#/usertable" className="header_link" style={{ fontSize: "28px" }}>
+          <a href="/#/heatmap" className="header_link" style={{ fontSize: "28px" }}>
+           Heatmap
+          </a>
+          <a href="/#/users" className="header_link" style={{ fontSize: "28px" }}>
            Users
           </a>
-          <a href="/#/contactstable" className="header_link" style={{ fontSize: "28px" }}>
+          <a href="/#/contacts" className="header_link" style={{ fontSize: "28px" }}>
            Contacts
           </a>
-          <a href="/#/resultstable" className="header_link" style={{ fontSize: "28px" }}>
+          <a href="/#/results" className="header_link" style={{ fontSize: "28px" }}>
            Test Results
           </a>
+          <a href="/#/tags" className="header_link" style={{ fontSize: "28px" }}>
+           Frequent Tags
+          </a>
+          
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
       </Navbar>

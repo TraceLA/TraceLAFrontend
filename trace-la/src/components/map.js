@@ -6,31 +6,12 @@ import {
   LoadScript,
   MarkerClusterer,
 } from "@react-google-maps/api";
-import BubbleChart from "@weknow/react-bubble-chart-d3";
 import axios from "axios";
 import "../styles/ToolPageStyles.css";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles({
-  table: {
-    minWidth: 400,
-  },
-  container: {
-    width: "45vw",
-    background: "#ffffff",
-    border: "1px solid black",
-  },
-  tableTitle: {
-    paddingLeft: 7,
-  },
-});
 
 const HeatMap = () => {
-  const classes = useStyles();
   const [data, setData] = useState([]);
   const [selected, setSelected] = useState(null);
-  const [contacts, setContacts] = useState([]);
-  const [results, setResults] = useState([]);
 
   useEffect(() => {
     const fetchCoords = async () => {
@@ -116,29 +97,6 @@ const HeatMap = () => {
     mapRef.current = map;
   }, []);
 
-  function createKey(location) {
-    return location.lat + location.lng + location.stamp;
-  }
-
-  function createBubbleData(data) {
-    let bubbleData = [];
-    if (data.length) {
-      let bubbleMap = new Map();
-      for (let i = 0; i < data.length; i++) {
-        if (bubbleMap.has(data[i].tag)) {
-          bubbleMap.set(data[i].tag, bubbleMap.get(data[i].tag) + 1);
-        } else if(data[i].tag.length){
-          bubbleMap.set(data[i].tag, 1);
-        }
-      }
-
-      for (let [key, value] of bubbleMap.entries()) {
-        bubbleData.push({ label: key, value: value });
-      }
-    }
-    
-    return bubbleData;
-  }
   const center = { lat: 34.0522, lng: -118.243683 };
 
   return (
@@ -206,41 +164,6 @@ const HeatMap = () => {
             )}
           </GoogleMap>
         </LoadScript>
-
-        <BubbleChart
-          graph={{
-            zoom: 1,
-            // offsetX: -0.05,
-            // offsetY: -0.01,
-          }}
-          width={600}
-          height={500}
-          padding={5} // optional value, number that set the padding between bubbles
-          showLegend={true} // optional value, pass false to disable the legend.
-          legendPercentage={20} // number that represent the % of with that legend going to use.
-          legendFont={{
-            family: "Arial",
-            size: 12,
-            color: "#000",
-            weight: "bold",
-          }}
-          valueFont={{
-            family: "Arial",
-            size: 12,
-            color: "#fff",
-            weight: "bold",
-          }}
-          labelFont={{
-            family: "Arial",
-            size: 16,
-            color: "#fff",
-            weight: "bold",
-          }}
-          //Custom bubble/legend click functions such as searching using the label, redirecting to other page
-          // bubbleClickFunc={this.bubbleClick}
-          // legendClickFun={this.legendClick}
-          data={createBubbleData(data)}
-        />
       </div>
     </div>
   );
