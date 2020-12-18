@@ -150,7 +150,7 @@ const HeatMap = () => {
       for (let i = 0; i < data.length; i++) {
         if (bubbleMap.has(data[i].tag)) {
           bubbleMap.set(data[i].tag, bubbleMap.get(data[i].tag) + 1);
-        } else {
+        } else if(data[i].tag.length){
           bubbleMap.set(data[i].tag, 1);
         }
       }
@@ -159,6 +159,7 @@ const HeatMap = () => {
         bubbleData.push({ label: key, value: value });
       }
     }
+    
     return bubbleData;
   }
   const center = { lat: 34.0522, lng: -118.243683 };
