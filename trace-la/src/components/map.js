@@ -235,7 +235,7 @@ const HeatMap = () => {
             // offsetX: -0.05,
             // offsetY: -0.01,
           }}
-          width={450}
+          width={600}
           height={500}
           padding={5} // optional value, number that set the padding between bubbles
           showLegend={true} // optional value, pass false to disable the legend.
