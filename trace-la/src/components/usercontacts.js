@@ -11,6 +11,9 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+
 const useStyles = makeStyles({
   table: {
     minWidth: 400,
@@ -75,4 +78,80 @@ const ContactsTable = () => {
   );
 };
 
-export default ContactsTable;
+
+const ContactsGraph = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchAggResults = async () => {
+      try {
+        const res = await axios.get("/aggregateContacts");
+        setData(res.data);
+      } catch (error) {
+        console.log("error to get aggregate results, set to default");
+        setData([]);
+      }
+    };
+    fetchAggResults();
+  }, []);
+  
+
+  function createContactsGraphData(data) {
+    let contactsData = [];
+    for (let i = 0; i < data.length; i++) {
+      let curDateStr = data[i]['date'].slice(0,10);
+      let curDateComponents = curDateStr.split("-")
+      let curCt = parseInt(data[i]['count']);
+      contactsData.push([Date.UTC(parseInt(curDateComponents[0]), parseInt(curDateComponents[1])-1, parseInt(curDateComponents[2])), curCt]);
+    }
+    return contactsData;
+  }
+
+  const options = {
+    chart: {
+      type: 'spline'
+    },
+    title: {
+      text: 'User Contacts'
+    },
+    yAxis: {
+      title: {
+          text: 'Number of contacts recorded'
+      },
+      min: 0
+  },
+    xAxis: {
+      type: 'datetime',
+      title: {
+          text: 'Date'
+      }
+  },
+    series: [
+      {
+        name: "Contacts per day",
+        data: createContactsGraphData(data)
+      }
+    ]
+  };
+
+  return (
+    <div style={{ display: "grid" }} className="body">  
+    <div className="row">
+     <HighchartsReact highcharts={Highcharts} options={options} />
+      </div>
+    </div>
+  );
+};
+
+const ContactsVisuals = () => {
+  return (
+    <div style={{ display: "grid" }} className="body">  
+    <ContactsGraph />
+     <ContactsTable />
+    </div>
+  );
+};
+
+
+
+export default ContactsVisuals;
