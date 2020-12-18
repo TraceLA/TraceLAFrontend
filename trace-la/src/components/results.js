@@ -83,6 +83,7 @@ const ResultsTable = () => {
 
 const ResultsGraph = () => {
   const [data, setData] = useState([]);
+  const dataForGraphs = createResultsGraphData(data);
 
   useEffect(() => {
     const fetchAggResults = async () => {
@@ -99,17 +100,22 @@ const ResultsGraph = () => {
   
 
   function createResultsGraphData(data) {
-    let resultsData = [];
+    let dailyResultsData = [];
+    let totalResultsData = [];
+    let sum = 0;
     for (let i = 0; i < data.length; i++) {
       let curDateStr = data[i]['date'].slice(0,10);
       let curDateComponents = curDateStr.split("-")
       let curCt = parseInt(data[i]['count']);
-      resultsData.push([Date.UTC(parseInt(curDateComponents[0]), parseInt(curDateComponents[1])-1, parseInt(curDateComponents[2])), curCt]);
+      let utcDate = Date.UTC(parseInt(curDateComponents[0]), parseInt(curDateComponents[1])-1, parseInt(curDateComponents[2]))
+      dailyResultsData.push([utcDate, curCt]);
+      sum += curCt;
+      totalResultsData.push([utcDate, sum]);
     }
-    return resultsData;
+    return {dailyResultsData: dailyResultsData, totalResultsData: totalResultsData};
   }
 
-  const options = {
+  const options_daily = {
     chart: {
       type: 'spline'
     },
@@ -131,7 +137,34 @@ const ResultsGraph = () => {
     series: [
       {
         name: "Positive Test Results",
-        data: createResultsGraphData(data)
+        data: dataForGraphs['dailyResultsData']
+      }
+    ]
+  };
+
+  const options_total = {
+    chart: {
+      type: 'spline'
+    },
+    title: {
+      text: 'Cumulative Positive Test Results'
+    },
+    yAxis: {
+      title: {
+          text: 'Number of positive results recorded'
+      },
+      min: 0
+  },
+    xAxis: {
+      type: 'datetime',
+      title: {
+          text: 'Date'
+      }
+  },
+    series: [
+      {
+        name: "Positive Test Results",
+        data: dataForGraphs['totalResultsData']
       }
     ]
   };
@@ -139,7 +172,10 @@ const ResultsGraph = () => {
   return (
     <div style={{ display: "grid" }} className="body">  
     <div className="row">
-     <HighchartsReact highcharts={Highcharts} options={options} />
+     <HighchartsReact highcharts={Highcharts} options={options_daily} />
+      </div>
+      <div className="row">
+      <HighchartsReact highcharts={Highcharts} options={options_total} />
       </div>
     </div>
   );
