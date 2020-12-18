@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import bellcurve from "highcharts/modules/histogram-bellcurve";
 
 const useStyles = makeStyles({
   table: {
@@ -80,21 +81,39 @@ const ContactsTable = () => {
 
 
 const ContactsGraph = () => {
-  const [data, setData] = useState([]);
+  const [dailyData, setDailyData] = useState([]);
+  const [distrData, setDistrData] = useState([]);
 
   useEffect(() => {
     const fetchAggResults = async () => {
       try {
-        const res = await axios.get("/aggregateContacts");
-        setData(res.data);
+        const daily = await axios.get("/aggregateContactsByDate");
+        setDailyData(daily.data);
+        const distr = await axios.get("/numContactsDistribution");
+        setDistrData(distr.data);
       } catch (error) {
         console.log("error to get aggregate results, set to default");
-        setData([]);
+        setDailyData([]);
+        setDistrData([]);
       }
     };
     fetchAggResults();
   }, []);
   
+
+  function createHistogramData(data) {
+    let histoData = [];
+    for (let i = 0; i < data.length; i++) {
+      let sum = parseInt(data[i]['sum']);
+      let ct = parseInt(data[i]['count']);
+      let additional = Array(ct).fill(sum);
+      console.log(additional)
+      histoData = histoData.concat(additional);
+    }
+    console.log("Histo data")
+    console.log(histoData)
+    return histoData;
+  }
 
   function createContactsGraphData(data) {
     let contactsData = [];
@@ -129,9 +148,56 @@ const ContactsGraph = () => {
     series: [
       {
         name: "Contacts per day",
-        data: createContactsGraphData(data)
+        data: createContactsGraphData(dailyData)
       }
     ]
+  };
+
+  const optionsHisto = 
+    {
+      title: {
+          text: 'Distribution of Number of Contacts Per User'
+      },
+  
+      xAxis: [{
+          title: { text: 'Number of Contacts' },
+          alignTicks: false
+      }, {
+          title: { text: '' },
+          alignTicks: false,
+          opposite: true
+      }],
+  
+      yAxis: [{
+          title: { text: 'Number of Users' }
+      }, {
+          title: { text: '' },
+          opposite: true
+      }],
+  
+      plotOptions: {
+          histogram: {
+              accessibility: {
+                  pointDescriptionFormatter: function (point) {
+                      var ix = point.index + 1,
+                          x1 = point.x.toFixed(3),
+                          x2 = point.x2.toFixed(3),
+                          val = point.y;
+                      return ix + '. ' + x1 + ' to ' + x2 + ', ' + val + '.';
+                  }
+              }
+          }
+      },
+  
+      series: [{
+        type: 'histogram',
+        xAxis: 1,
+        yAxis: 1,
+        baseSeries: 1
+    }, {
+        type: 'scatter',
+        data: createHistogramData(distrData)
+    }]
   };
 
   return (
@@ -139,6 +205,11 @@ const ContactsGraph = () => {
     <div className="row">
      <HighchartsReact highcharts={Highcharts} options={options} />
       </div>
+      <div className="row">
+
+      <HighchartsReact highcharts={bellcurve(Highcharts)} options={optionsHisto} />
+      </div>
+      
     </div>
   );
 };
