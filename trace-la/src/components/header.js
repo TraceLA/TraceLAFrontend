@@ -10,11 +10,8 @@ const Header = () => {
           <a href="/" className="header_link" style={{ fontSize: "28px" }}>
             Home
           </a>
-          <a href="/#/heatmap" className="header_link" style={{ fontSize: "28px" }}>
-           Heatmap
-          </a>
-          <a href="/#/users" className="header_link" style={{ fontSize: "28px" }}>
-           Users
+          <a href="/#/activity" className="header_link" style={{ fontSize: "28px" }}>
+           Activity
           </a>
           <a href="/#/contacts" className="header_link" style={{ fontSize: "28px" }}>
            Contacts
@@ -24,6 +21,9 @@ const Header = () => {
           </a>
           <a href="/#/tags" className="header_link" style={{ fontSize: "28px" }}>
            Tags
+          </a>
+          <a href="/#/users" className="header_link" style={{ fontSize: "28px" }}>
+           Users
           </a>
           
         </Navbar.Brand>

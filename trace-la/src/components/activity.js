@@ -9,6 +9,10 @@ import {
 import axios from "axios";
 import "../styles/ToolPageStyles.css";
 
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+
+
 const HeatMap = () => {
   const [data, setData] = useState([]);
   const [selected, setSelected] = useState(null);
@@ -169,4 +173,78 @@ const HeatMap = () => {
   );
 };
 
-export default HeatMap;
+
+const CoordsGraph = () => {
+  const [dailyData, setDailyData] = useState([]);
+  
+  useEffect(() => {
+    const fetchAggResults = async () => {
+      try {
+        const daily = await axios.get("/aggregateCoordsByDate");
+        setDailyData(daily.data);
+      } catch (error) {
+        console.log("error to get aggregate results, set to default");
+        setDailyData([]);
+      }
+    };
+    fetchAggResults();
+  }, []);
+  
+  function createCoordsGraphData(data) {
+    let contactsData = [];
+    for (let i = 0; i < data.length; i++) {
+      let curDateStr = data[i]['date_trunc'].slice(0,10);
+      let curDateComponents = curDateStr.split("-")
+      let curCt = parseInt(data[i]['count']);
+      contactsData.push([Date.UTC(parseInt(curDateComponents[0]), parseInt(curDateComponents[1])-1, parseInt(curDateComponents[2])), curCt]);
+    }
+    return contactsData;
+  }
+
+  const options = {
+    chart: {
+      type: 'spline'
+    },
+    title: {
+      text: 'User Location Logs'
+    },
+    yAxis: {
+      title: {
+          text: 'Number of coordinate logs recorded'
+      },
+      min: 0
+  },
+    xAxis: {
+      type: 'datetime',
+      title: {
+          text: 'Date'
+      }
+  },
+    series: [
+      {
+        name: "Location stamps per day",
+        data: createCoordsGraphData(dailyData)
+      }
+    ]
+  };
+
+  return (
+    <div style={{ display: "grid" }} className="body">  
+    <div className="row">
+     <HighchartsReact highcharts={Highcharts} options={options} />
+      </div>      
+    </div>
+  );
+};
+
+const ActivityVisuals = () => {
+  return (
+    <div style={{ display: "grid" }} className="body">  
+     <HeatMap />
+     <CoordsGraph />
+    </div>
+  );
+};
+
+
+export default ActivityVisuals;
