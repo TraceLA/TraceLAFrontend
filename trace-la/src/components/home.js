@@ -16,7 +16,7 @@ const LoginButton = () => {
     try {
       const res = await axios.post("/userLogin", null, { params });
       window.localStorage.setItem("apikey", res.data.api_key);
-      history.push("/heatmap");
+      history.push("/activity");
     } catch (err) {
       // TODO: add helper text based on the error from response
       console.error(err.response.data);
